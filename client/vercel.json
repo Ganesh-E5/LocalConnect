@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://localconnect-y7hk.onrender.com/api/:path*" }
+  ]
+}
