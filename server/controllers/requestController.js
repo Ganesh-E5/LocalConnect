@@ -4,8 +4,10 @@ const ServiceCategory = require('../models/ServiceCategory');
 
 const createRequest = async (req, res) => {
     try {
-        const { serviceType, description, location } = req.body;
-
+        const { serviceType, description, location } = req.body||{};
+        if (!serviceType || !description || !location) {
+            return res.status(400).json({ message: "All fields are required" });
+        a}
         const categories = await ServiceCategory.find({});
         const allValidSkills = categories.flatMap(cat => cat.skills.map(skill => skill.toLowerCase()));
 
